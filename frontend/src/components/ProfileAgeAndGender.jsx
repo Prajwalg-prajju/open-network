@@ -3,6 +3,7 @@ import { API_BASE_URL } from "../services/apiConfig";
 
 export default function ProfileAgeAndGender({
   name,
+  namelocation,
   bio,
   profileUrl,
   gender,
@@ -18,12 +19,17 @@ export default function ProfileAgeAndGender({
 
       <div className="profile-text">
         <h2>{name}</h2>
+
         {birthYear && (
           <span>
             {new Date().getFullYear() - birthYear} Y • {gender}
           </span>
         )}
-        <p>{bio}</p>
+
+        {location && (
+            <span className="profile-location">• {namelocation}</span>
+          )}
+        <p className="bio-of_profile">{bio}</p>
       </div>
     </div>
   );

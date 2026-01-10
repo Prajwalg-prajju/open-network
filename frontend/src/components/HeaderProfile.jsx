@@ -11,6 +11,8 @@ import Document from "./Documents";
 import SocialSection from "./SocialSection";
 import AddressSection from "./AddressSection";
 import UPIPaymentButton from "./UPIPaymentButton";
+import ContactInfo from "./ContactInfo";
+import SaveContactButton from "./saveContact/SaveContactButton"
 import "../styles/other.css"
 
 export default function HeaderProfile({ user, accountType }) {
@@ -23,6 +25,7 @@ export default function HeaderProfile({ user, accountType }) {
 
       <ProfileAgeAndGender
         name={user.name}
+        namelocation={user.namelocation}
         bio={user.bio}
         profileUrl={user.profile_image}
         gender={user.gender}
@@ -34,7 +37,6 @@ export default function HeaderProfile({ user, accountType }) {
           statusType={user.status_type}
           fillOne={user.fillone}
           fillTwo={user.filltwo}
-          joinedAt={user.created_at}
         />
 
         <SelectedLanguage
@@ -47,8 +49,14 @@ export default function HeaderProfile({ user, accountType }) {
 
         <CustomLinks links={user.custom_links} />
 
-        <SocialSection
-          socials={user.social_accounts || {}}
+        <ContactInfo
+          phone={user.phone_number}
+          email={user.email}
+          emergency={user.emergency_number}
+        />
+
+        <UPIPaymentButton
+          upiId={user.upi_id}
         />
 
         <AddressSection
@@ -57,9 +65,12 @@ export default function HeaderProfile({ user, accountType }) {
           lng={user.lng}
         />
 
-        <UPIPaymentButton
-          upiId={user.upi_id}
+
+        <SocialSection
+          socials={user.social_accounts || {}}
         />
+        <SaveContactButton user={user} />
+
       </div>
     </div>
   );
