@@ -1,0 +1,230 @@
+/* ===== SECTION ===== */
+.offers-section {
+  width: 100%;
+  padding: 0 12px;
+  margin: 16px 0;
+}
+
+/* ===== SLIDER ===== */
+.offers-slider {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ===== CARD ===== */
+.offer-card {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  transition: 0.3s ease;
+}
+
+/* ===== BADGE ===== */
+.offer-badge {
+  min-width: 90px;
+  padding: 10px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+/* COLORS */
+.offer-badge.green {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.offer-badge.purple {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+/* ===== CONTENT ===== */
+.offer-content {
+  flex: 1;
+  padding: 12px;
+  overflow: hidden;
+}
+
+.offer-content h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.offer-content p {
+  margin: 4px 0;
+  font-size: 12px;
+  color: #6b7280;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ===== EXPIRY ===== */
+.offer-expiry-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+
+  background: #fef2f2;
+  padding: 4px 8px;
+  border-radius: 999px;
+
+  font-size: 11px;
+  color: #dc2626;
+
+  white-space: nowrap;
+}
+
+.offer-expiry-box .dot {
+  width: 6px;
+  height: 6px;
+  background: #dc2626;
+  border-radius: 50%;
+}
+
+/* ===== EXPIRED ===== */
+.offer-card.expired {
+  opacity: 0.6;
+  filter: grayscale(20%);
+}
+
+/* ===== DOTS ===== */
+.offer-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 6px;
+}
+
+.offer-dots span {
+  width: 6px;
+  height: 6px;
+  background: #d1d5db;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.offer-dots span.active {
+  width: 16px;
+  background: #111827;
+  border-radius: 10px;
+}
+
+/* ========================= */
+/* 📱 MOBILE (SMALL) */
+/* ========================= */
+@media (max-width: 480px) {
+  .offer-card {
+    border-radius: 14px;
+  }
+
+  .offer-badge {
+    min-width: 70px;
+    font-size: 11px;
+    padding: 8px 6px;
+  }
+
+  .offer-content {
+    padding: 10px;
+  }
+
+  .offer-content h4 {
+    font-size: 13px;
+  }
+
+  .offer-content p {
+    font-size: 11px;
+  }
+
+  .offer-expiry-box {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+}
+
+/* ========================= */
+/* 📲 TABLET */
+/* ========================= */
+@media (min-width: 768px) {
+  .offer-card {
+    border-radius: 18px;
+  }
+
+  .offer-badge {
+    min-width: 110px;
+    font-size: 14px;
+  }
+
+  .offer-content h4 {
+    font-size: 16px;
+  }
+
+  .offer-content p {
+    font-size: 13px;
+  }
+}
+
+/* ========================= */
+/* 💻 DESKTOP */
+/* ========================= */
+@media (min-width: 1024px) {
+  .offers-section {
+    max-width: 900px;
+    margin: 20px auto;
+  }
+
+  .offer-card {
+    border-radius: 20px;
+  }
+
+  .offer-content {
+    padding: 16px;
+  }
+
+  .offer-content h4 {
+    font-size: 17px;
+  }
+
+  .offer-content p {
+    font-size: 14px;
+  }
+
+  .offer-expiry-box {
+    font-size: 12px;
+  }
+}
+
+/* ========================= */
+/* 🖥 LARGE SCREENS */
+/* ========================= */
+@media (min-width: 1280px) {
+  .offers-section {
+    max-width: 1100px;
+  }
+
+  .offer-card {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}

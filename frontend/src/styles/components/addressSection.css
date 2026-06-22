@@ -1,0 +1,76 @@
+/* =========================
+   ADDRESS FIX ONLY
+========================= */
+
+.address-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 2px solid #f5f5f5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease;
+  margin: 14px;
+}
+
+.address-card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.address-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.address-copy-icon {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.address-copy-icon:hover {
+  opacity: 0.7;
+}
+
+.address-copy-icon:active {
+  transform: scale(0.9);
+}
+
+.address-copy-img {
+  width: 18px;
+  height: 18px;
+}
+
+.address-text {
+  font-size: 14px;
+  color: #222;
+  word-break: break-word;
+  margin: 0;
+}
+
+.get-directions-btn {
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  background: #007bff;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s ease;
+  width: 50%;
+}
+
+.get-directions-btn:hover {
+  background: #0056b3;
+}
+
+.get-directions-btn:active {
+  background: #007bff;
+}

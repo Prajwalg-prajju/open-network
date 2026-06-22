@@ -1,0 +1,272 @@
+/* ===== PROFESSIONAL PROFILE OVERRIDES ===== */
+
+.profile-professionals .profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  margin: 16px;
+  padding: 24px 20px;
+  border-radius: 20px;
+
+  background: #ffffff;
+  border: 1px solid #eef2f7;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.08);
+  margin-top: -4px;
+}
+
+
+
+/* Profile Image */
+.profile-professionals .profile-image-avatar {
+  width: 170px;
+  height: 170px;
+
+  margin-top: -120px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  background: #ffffff;
+  object-fit: cover;
+  z-index: 10;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Name */
+.profile-professionals .profile-text h2 {
+  margin: 12px 0 6px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Tagline */
+.profile-professionals .professional-tagline {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 4px 0 8px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* Location */
+.profile-professionals .profile-location {
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+/* Bio */
+/* ===== PROFESSIONAL BIO SEPARATE CARD ===== */
+.profile-professionals .bio-card {
+  margin: 0 16px 16px;
+  padding: 20px;
+
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #eef2f7;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+
+/* ================================= */
+/* PROFESSIONAL PROFILE BUTTON ALIGN */
+/* ================================= */
+
+/* ===== PROFESSIONAL PROFILE BUTTONS ===== */
+
+/* ===== PROFESSIONAL PROFILE BUTTONS ONLY ===== */
+/* ================================= */
+/* PROFESSIONAL PROFILE BUTTON ALIGN */
+/* ================================= */
+/* ================================= */
+/* PROFESSIONAL PROFILE BUTTON ALIGN */
+/* ================================= */
+/* ================================= */
+/* PROFESSIONAL PROFILE BUTTON ALIGN */
+/* ================================= */
+
+.profile-professionals .professionals-buttons {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  margin-bottom: -25px;
+}
+
+/* Each button container */
+.profile-professionals .professionals-buttons .btn-item {
+  flex: 1;
+  display: flex;
+}
+
+/* FIX wrapper issues */
+.profile-professionals .call-chat-wrapper,
+.profile-professionals .professional-pay .upi-card {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+}
+
+/* ================================= */
+/* CALL BUTTON */
+/* ================================= */
+
+.profile-professionals .call-btn {
+  flex: 1;
+  height: 30px;
+
+  background: #007bff;
+  color: #fff;
+
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.profile-professionals .call-btn:hover {
+  background: #0056b3;
+}
+
+/* ================================= */
+/* PAY BUTTON */
+/* ================================= */
+
+.profile-professionals .upi-pay-btn {
+  flex: 1;
+  height: 30px;
+  width: 100px;
+
+  background: #25D366;
+  color: #fff;
+
+  border: none;
+  border-radius: 14px;
+
+  font-weight: 600;
+  font-size: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.profile-professionals .upi-pay-btn:hover {
+  background: #1ebe5d;
+}
+/* ================================= */
+/* PROFESSIONAL PROFILE UPI POPUP */
+/* ================================= */
+
+/* ================================= */
+/* PROFESSIONAL PROFILE UPI POPUP CENTER */
+/* ================================= */
+/* ================================= */
+/* PROFESSIONAL PROFILE UPI POPUP */
+/* ================================= */
+
+.profile-professionals .upi-alert-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 260px;
+
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #eef2f7;
+
+  padding: 16px;
+
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+
+  z-index: 1001;
+  text-align: center;
+}
+
+/* Dark background overlay */
+.profile-professionals .upi-alert-popup::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.35);
+
+  z-index: -1;
+  border-radius: 16px;
+}
+
+/* Text */
+.profile-professionals .upi-alert-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #475569;
+  margin-bottom: 12px;
+}
+
+/* Row */
+.profile-professionals .upi-alert-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #f8fafc;
+  border-radius: 10px;
+
+  padding: 8px 10px;
+}
+
+/* UPI ID */
+.profile-professionals .upi-alert-id {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  word-break: break-all;
+}
+
+/* Copy icon */
+.profile-professionals .upi-copy-icon {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.profile-professionals .upi-alert-popup {
+  animation: upiPopup 0.25s ease;
+}
+
+@keyframes upiPopup {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}

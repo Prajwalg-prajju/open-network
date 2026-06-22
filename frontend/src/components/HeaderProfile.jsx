@@ -1,10 +1,8 @@
 import React from "react";
 import ProfileHeader from "./ProfileHeader";
 import CoverImage from "./CoverImage";
-import ProfileImage from "./ProfileImage";
 import ProfileAgeAndGender from "./ProfileAgeAndGender";
 import BasicInfo from "./BasicInfo";
-import StatusSection from "./StatusSection";
 import SelectedLanguage from "./SelectedLanguages";
 import CustomLinks from "./CustomLinks";
 import Document from "./Documents";
@@ -13,23 +11,30 @@ import AddressSection from "./AddressSection";
 import UPIPaymentButton from "./UPIPaymentButton";
 import ContactInfo from "./ContactInfo";
 import SaveContactButton from "./saveContact/SaveContactButton"
-import "../styles/other.css"
+import ProfileSkeleton from "./ProfileSkeleton"
+
 
 export default function HeaderProfile({ user, accountType }) {
+  if (!user) {
+    return <ProfileSkeleton />;
+  }
   return (
     <div className="profile-card-wrapper">
 
       <ProfileHeader user={user} accountType={accountType} />
 
-      <CoverImage url={user.cover_image} />
+      <CoverImage 
+        url={user.cover_image}
+        gender={user.gender}
+        birthYear={Number(user.birth_year)}
+      />
+      
 
       <ProfileAgeAndGender
         name={user.name}
         namelocation={user.namelocation}
         bio={user.bio}
         profileUrl={user.profile_image}
-        gender={user.gender}
-        birthYear={Number(user.birth_year)}
       />
 
       <div className="profile-sections">

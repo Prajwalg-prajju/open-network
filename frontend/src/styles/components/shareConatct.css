@@ -1,0 +1,354 @@
+/* components/profiles/ShareContact.css */
+
+
+.share-contact-wrapper {
+  margin-bottom: 16px;
+  text-align: center;
+  margin: 5px;
+}
+
+
+
+/* MAIN BUTTON */
+.share-your-contact-btn-main {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.25s ease;
+  max-width: 750px;
+  width: 100%;
+  box-shadow: 0 6px 18px rgba(99,102,241,0.35);
+  margin-bottom: 12px;
+}
+
+
+/* MODAL BACKGROUND */
+.share-contact-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(30,41,59,0.8));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+/* MODAL CONTENT */
+.share-contact-content {
+  background: linear-gradient(135deg, #ffffff, #f4f6ff);
+  padding: 26px;
+  border-radius: 16px;
+  max-width: 420px;
+  width: 92%;
+  max-height: 90vh;         /* maximum height (90% of viewport) */
+  height: auto;             /* allows height to adjust with content */
+  overflow-y: auto;         /* enable vertical scroll */
+  scrollbar-width: none;    /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  position: relative;
+  animation: popup 0.25s ease;
+}
+
+/* Hide scrollbar for Webkit browsers (Chrome, Safari, Edge) */
+.share-contact-content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+@keyframes popup {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.share-contact-content{
+  margin-bottom: 18px;
+  
+}
+.share-contact-heading{
+  text-align: center;
+  color: #3730a3;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+/* INPUTS */
+.share-contact-content input,
+.share-contact-content textarea {
+  width: 100%;
+  padding: 11px 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid #dbe1ff;
+  background: #f9faff;
+  transition: 0.2s;
+}
+
+.share-contact-content input:focus,
+.share-contact-content textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99,102,241,0.2);
+  background: #fff;
+}
+
+.share-contact-content video {
+  width: 100%;
+  max-height: 220px; /* mobile-friendly */
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* BUTTON ROW */
+.modal-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+/* SUBMIT */
+.submit-btn {
+  flex: 1;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  padding: 11px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s;
+  box-shadow: 0 6px 14px rgba(34,197,94,0.35);
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(34,197,94,0.45);
+}
+
+/* CANCEL */
+.cancel-btn {
+  flex: 1;
+  background: linear-gradient(135deg, #f87171, #ef4444);
+  color: #fff;
+  padding: 11px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s;
+  box-shadow: 0 6px 14px rgba(239,68,68,0.35);
+}
+
+.cancel-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(239,68,68,0.45);
+}
+
+/* SUCCESS */
+.success-message {
+  color: #16a34a;
+
+  font-weight: 600;
+  text-align: center;
+}
+
+.camera-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 10px;
+
+}
+
+
+
+/* === Scroll Hint Wrapper === */
+.scroll-indicator {
+  position: fixed; /* sticky -> fixed for mobile visibility */
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 9999;
+  pointer-events: none;
+  padding-bottom: env(safe-area-inset-bottom); /* iOS safe area */
+  animation: floatWrapper 2.5s ease-in-out infinite;
+}
+
+/* === Glass Bubble === */
+.scroll-arrows {
+  background: linear-gradient(135deg, rgba(255,255,255,.85), rgba(240,240,255,.7));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 10px 16px;
+  border-radius: 999px;
+  box-shadow: 
+    0 12px 28px rgba(99,102,241,0.35),
+    inset 0 1px 1px rgba(255,255,255,.7);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  animation: floatHint 2.2s ease-in-out infinite;
+}
+
+/* === Arrow Style === */
+.scroll-arrows i {
+  width: 11px;
+  height: 11px;
+  border-right: 2.5px solid #6366f1;
+  border-bottom: 2.5px solid #6366f1;
+  transform: rotate(225deg);
+  opacity: 0;
+  animation: scrollArrow 1.6s infinite;
+}
+
+/* === Delay === */
+.scroll-arrows i:nth-child(1) { animation-delay: 0s; }
+.scroll-arrows i:nth-child(2) { animation-delay: .18s; }
+.scroll-arrows i:nth-child(3) { animation-delay: .36s; }
+
+/* === Arrow Motion === */
+@keyframes scrollArrow {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) rotate(225deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-6px) rotate(225deg);
+  }
+}
+
+/* === Float Animation for Bubble === */
+@keyframes floatHint {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* === Subtle wrapper float (whole indicator) === */
+@keyframes floatWrapper {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* === Mobile Polish === */
+@media (max-width: 480px) {
+  .scroll-arrows {
+    padding: 8px 14px;
+    gap: 5px;
+  }
+
+  .scroll-arrows i {
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #6366f1;
+    border-bottom: 2px solid #6366f1;
+  }
+  
+}
+
+
+
+/* ===== PREMIUM FLOAT BUTTON ===== */
+.share-contact-float {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+box-shadow:
+  0 8px 20px rgba(37, 99, 235, 0.35),
+  0 4px 8px rgba(0, 0, 0, 0.15);
+/* background: linear-gradient(135deg, #0f172a, #4338ca);
+box-shadow:
+  0 8px 20px rgba(67, 56, 202, 0.35),
+  0 4px 8px rgba(0, 0, 0, 0.2); */
+
+
+
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000;
+
+  transition: all 0.3s ease;
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+/* 750px centered layout support */
+@media (min-width: 750px) {
+  .share-contact-float {
+    right: calc((100vw - 750px) / 2 + 20px);
+  }
+}
+
+/* Hover Effect */
+.share-contact-float:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow:
+    0 12px 30px rgba(79, 70, 229, 0.45),
+    0 6px 12px rgba(0, 0, 0, 0.15);
+  animation: none;
+}
+
+/* Click Effect */
+.share-contact-float:active {
+  transform: scale(0.95);
+}
+
+/* Subtle Corporate Pulse */
+@keyframes pulseGlow {
+  0% {
+    box-shadow:
+      0 8px 20px rgba(37, 99, 235, 0.35),
+      0 0 0 0 rgba(37, 99, 235, 0.45);
+  }
+  70% {
+    box-shadow:
+      0 8px 20px rgba(37, 99, 235, 0.35),
+      0 0 0 14px rgba(37, 99, 235, 0);
+  }
+  100% {
+    box-shadow:
+      0 8px 20px rgba(37, 99, 235, 0.35),
+      0 0 0 0 rgba(37, 99, 235, 0);
+  }
+}

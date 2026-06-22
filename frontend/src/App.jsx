@@ -1,15 +1,38 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/HomePage";
-import PublicProfile from "./pages/PublicProfile";
+import { HashRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+
+import "./index.css";
+
+const Home = lazy(() => import("./pages/HomePage"));
+const PublicProfile = lazy(() => import("./pages/PublicProfile"));
+const FaceVerify = lazy(() => import("./pages/FaceVerify"));
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />                {/* Home page */}
-        <Route path="/u/:userId" element={<PublicProfile />} /> {/* Profile page */}
-        <Route path="*" element={<div>Page Not Found</div>} /> {/* Fallback */}
-      </Routes>
-    </BrowserRouter>
+    <HashRouter>
+      <Suspense
+        fallback={
+          <div
+            style={{
+              height: "100vh",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              fontSize: "18px",
+              fontWeight: "600",
+            }}
+          >
+            Loading...
+          </div>
+        }
+      >
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/face-verify" element={<FaceVerify />} />
+          <Route path="/u/:userId" element={<PublicProfile />} />
+          <Route path="*" element={<div>Page Not Found</div>} />
+        </Routes>
+      </Suspense>
+    </HashRouter>
   );
 }

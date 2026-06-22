@@ -1,5 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* stop default page scroll */
+}
+
+/* Create your own scroll container */
 .profile-card-wrapper {
-  max-width: 750px; /* max card width */
+  max-width: 750px;
+  margin: 0 auto;
+  background: #ffffff;
+  font-family: "Arial", sans-serif;
+  padding-bottom: 90px;
+  min-width: 320px;
+
+  height: 100vh;
+  overflow-y: auto;
+
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* IE / Edge */
+  align-items: center;
+}
+
+.profile-card-wrapper::-webkit-scrollbar {
+  display: none;             /* Chrome / Safari */
+}
+
+
+/* .profile-card-wrapper {
+  max-width: 750px; 
   margin: 0 auto;
   box-sizing: border-box;
   align-items: center;
@@ -7,7 +40,8 @@
   background: #ffffff;
   font-family: "Arial", sans-serif;
   padding-bottom: 80px;
-}
+  
+} */
 .top-identity-bar {
   align-items: center;
   justify-items: center;
@@ -32,8 +66,28 @@
 
   width: 100%;
   height: 300px;
+  display: block;
    /* overlaps avatar */
 }
+.cover-badges {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* left-right alignment */            /* space between image and badges */
+              /* horizontal padding */
+}
+
+.cover-left,
+.cover-right {
+  background: rgba(173, 216, 230, 0.5); /* light blue, semi-transparent */
+  color: #000000;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3); /* soft blue shadow */
+  text-transform: capitalize;
+}
+
 
 .profile-info {
 
@@ -142,6 +196,7 @@ justify-content: center;
   font-size: 0.85rem;
 }
 
+/* DOCUMENT LINK */
 .document-link {
   display: flex;
   align-items: center;
@@ -151,16 +206,61 @@ justify-content: center;
   padding: 12px 14px;
   margin-bottom: 10px;
 
-  background: #0b0b0b;
+  background: #0b0b0b;       /* dark background */
   border: 1px solid #e6e8ee;
   border-radius: 10px;
 
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 500;
-  color: #ffffff;
-  
-  }
+  color: #ffffff !important;
+  cursor: pointer;
+  margin: 5px;
+}
+
+/* fix last item spacing */
+.document-link:last-child {
+  margin-bottom: 0;
+}
+
+
+
+  /* modal overlay */
+.document-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+/* close button */
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 120px;
+  background: #fff;
+  border: none;
+  font-size: 20px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* iframe for document */
+.document-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+}
+
 
 /* ================================
    LAST ITEM FIX
@@ -168,6 +268,26 @@ justify-content: center;
 .document-link:last-child {
   margin-bottom: 0;
 }
+
+/* =========================
+   CONTACT INFO
+========================= */
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 5px;
+}
+
+/* Row layout */
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Phone / Email text */
 /* ===== CUSTOM LINKS ===== */
 /* ================================
    WRAPPER
@@ -190,6 +310,7 @@ justify-content: center;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin: 5px;
 }
 
 /* EACH LINK */
@@ -226,24 +347,6 @@ justify-content: center;
   margin-bottom: 20px;
 }
 
-/* =========================
-   CONTACT INFO
-========================= */
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-/* Row layout */
-.contact-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Phone / Email text */
 .contact-text {
   flex: 1;
   padding: 12px;
@@ -289,11 +392,17 @@ justify-content: center;
 /* =========================
    UPI PAYMENT
 ========================= */
+
+
+/* ================= UPI CARD WRAPPER ================= */
 .upi-card {
   display: flex;
   justify-content: center;
+  position: relative; /* popup positioned relative to button */
+  width: 100%;
 }
 
+/* ================= UPI BUTTON ================= */
 .upi-pay-btn {
   width: 100%;
   padding: 14px;
@@ -305,6 +414,7 @@ justify-content: center;
   color: #fff;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.1s ease;
+  margin: 5px;
 }
 
 .upi-pay-btn:hover {
@@ -313,6 +423,72 @@ justify-content: center;
 
 .upi-pay-btn:active {
   transform: scale(0.97);
+}
+
+/* ================= ALERT POPUP ================= */
+.upi-alert-popup {
+  position: absolute;
+  top: 115%; /* slightly below button */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border: 1px solid #cfe3ff;
+  border-radius: 12px;
+  padding: 14px 18px; /* bigger padding */
+  min-width: 265px;   /* wider box */
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  animation: fadeUp 0.2s ease;
+  max-width: 90%;
+}
+
+/* ===== ALERT TEXT ===== */
+.upi-alert-text {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* ===== UPI ID ROW ===== */
+.upi-alert-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ===== UPI ID ===== */
+.upi-alert-id {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  word-break: break-all; /* prevents overflow */
+}
+
+/* ===== COPY ICON ===== */
+.upi-copy-icon {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.upi-copy-icon:hover {
+  opacity: 0.7;
+}
+
+/* ================= FADE UP ANIMATION ================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }
 
 
@@ -354,6 +530,7 @@ justify-content: center;
   border: 2px solid #f5f5f5;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* soft shadow */
   transition: box-shadow 0.2s ease;
+  margin: 5px;
 }
 
 .address-card:hover {
@@ -418,7 +595,8 @@ justify-content: center;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  justify-content: flex-start; /* change to center if needed */
+  justify-content: center; /* change to center if needed */
+  margin: 4px;
 }
 
 .social-card {
@@ -492,6 +670,97 @@ justify-content: center;
   width: 24px;   /* icon size */
   height: 24px;
   display: block;
+}
+
+
+/* ===== Skeleton Loader ===== */
+
+/* Container */
+.skeleton-wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 16px;
+  font-family: Arial, sans-serif;
+}
+
+/* Cover Image Skeleton */
+.skeleton-cover {
+  width: 100%;
+  height: 280px;
+  background: #e5e5e5;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header with avatar + name */
+.skeleton-header {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  align-items: center;
+}
+
+/* Avatar */
+.skeleton-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #ddd;
+}
+
+/* Name + bio lines */
+.skeleton-lines {
+  flex: 1;
+}
+
+.skeleton-line {
+  height: 14px;
+  background: #ddd;
+  margin-bottom: 8px;
+  border-radius: 6px;
+}
+
+.skeleton-line.short {
+  width: 60%;
+}
+
+/* Section cards (Documents, Socials, etc.) */
+.skeleton-card {
+  height: 70px;
+  margin: 12px 0;
+  background: #ddd;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer effect */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px;
+  width: 150px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.6),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    left: 100%;
+  }
 }
 
 
